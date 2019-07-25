@@ -12,6 +12,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, strong) URLs *urls;
 @property(nonatomic) double width;
 @property(nonatomic) double height;
+@property(nonatomic, strong) NSString *descr;
+@property(nonatomic, strong) NSString *altDescr;
 
 - (instancetype)initWithJSON:(NSDictionary *)JSON;
 @end

@@ -3,13 +3,11 @@
 //
 
 #import <UIKit/UIKit.h>
-
+@class Image;
 NS_ASSUME_NONNULL_BEGIN
 
 @interface TTUSPhotoTableViewCell : UITableViewCell
-@property (strong, nonatomic) IBOutlet UIImageView *imageThumbView;
-@property (strong, nonatomic) IBOutlet UIView *descriptionContainerView;
-@property (strong, nonatomic) IBOutlet UILabel *descriptionLabel;
+- (void)updateData:(Image *)image;
 @end
 
 NS_ASSUME_NONNULL_END

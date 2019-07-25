@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<VariablesViewState
+   version = "1.0">
+   <ContextStates>
+      <ContextState
+         contextName = "-[Image initWithJSON:]:Image.m">
+      </ContextState>
+      <ContextState
+         contextName = "-[TTUSPhotoCollectionViewController tableView:numberOfRowsInSection:]:TTUSPhotoCollectionViewController.m">
+      </ContextState>
+      <ContextState
+         contextName = "-[TTUSSearchViewController onGoBtn:]:TTUSSearchViewController.m">
+         <PersistentStrings>
+            <PersistentString
+               value = "self.queryLoader">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "-[TTUSPhotoCollectionViewController tableView:cellForRowAtIndexPath:]:TTUSPhotoCollectionViewController.m">
+      </ContextState>
+      <ContextState
+         contextName = "__45-[TTUSPhotoCollectionViewController loadNext]_block_invoke:TTUSPhotoCollectionViewController.m">
+      </ContextState>
+      <ContextState
+         contextName = "-[TTUSPhotoTableViewCell loadImageWithUrl:]:TTUSPhotoTableViewCell.m">
+         <PersistentStrings>
+            <PersistentString
+               value = "self.imageLoader">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+   </ContextStates>
+</VariablesViewState>

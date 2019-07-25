@@ -3,15 +3,16 @@
 //
 
 #import "URLs.h"
+#import "NSDictionary+TTUSValidDictionary.h"
 @implementation URLs
 - (instancetype)initWithJSON:(NSDictionary *)JSON {
     self = [super init];
     if (self) {
-        self.full = [[JSON valueForKey:@"full"] stringValue];
-        self.raw = [[JSON valueForKey:@"raw"] stringValue];
-        self.regular = [[JSON valueForKey:@"regular"] stringValue];
-        self.small = [[JSON valueForKey:@"small"] stringValue];
-        self.thumb = [[JSON valueForKey:@"thumb"] stringValue];
+        self.full = [JSON validatedValueForKey:@"full"];
+        self.raw = [JSON validatedValueForKey:@"raw"];
+        self.regular = [JSON validatedValueForKey:@"regular"];
+        self.small = [JSON validatedValueForKey:@"small"];
+        self.thumb = [JSON validatedValueForKey:@"thumb"];
     }
     return self;
 }

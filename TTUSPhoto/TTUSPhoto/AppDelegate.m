@@ -19,7 +19,7 @@
     
     PhotoSearchParams params;
     params.apiUrl = @"https://api.unsplash.com";
-    params.perPage = 10;
+    params.perPage = 30;
     params.clientId = @"ee803fdfeeca8944ac3ff589fd73f22fa64c7c373760488c0796f2e292eb0271";
     params.orderedBy = @"latest";
     

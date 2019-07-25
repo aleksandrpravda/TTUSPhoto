@@ -12,6 +12,7 @@
 @property(nonatomic, strong) NSString *query;
 @property(nonatomic, assign) BOOL hasNext;
 @property(nonatomic, assign) NSUInteger pageNumber;
+@property(nonatomic, assign) BOOL isLoading;
 @end
 
 @implementation TTUSPageLoaderService
@@ -19,34 +20,31 @@
     self = [super init];
     if (self) {
         self.params = params;
-        self.pageNumber = 0;
         self.hasNext = true;
-        self.query = @"";
+        self.photoSearchService = [[TTUSPhotoSearchService alloc] init];
     }
     return self;
 }
 
-- (void)getPhotosQuery:(NSString *)query success:(void(^)(NSArray *))success failure:(void(^)(NSError *))failure {
+- (void)getPhotosQuery:(NSString *)query completion:(void(^)(NSArray *, NSError * _Nullable))completion {
     self.query = query;
-    NSString *stringURL = [NSString stringWithFormat:@"%@/search/photos?page=%lu&per_page=%ld&order_by=%@&client_id=%@&query=%@", self.params.apiUrl, (unsigned long)self.pageNumber, (long)self.params.perPage, self.params.orderedBy, self.params.clientId, self.query];
-    [self.photoSearchService getPhotos:[NSURL URLWithString:stringURL]
-                               success:^(NSDictionary * JSON) {
-                                   NSArray *results = [JSON valueForKey:@"results"];
-                                   NSInteger itemsCount = results.count;
-                                   self.hasNext = itemsCount == self.params.perPage;
-                                   NSMutableArray *images = [NSMutableArray array];
-                                   for (NSDictionary *imageJSON in results) {
-                                       [images addObject:[[Image alloc] initWithJSON:imageJSON]];
-                                   }
-                               }
-                               failure:failure
-     ];
+    self.pageNumber = 1;
+    [self searchFotos:self.query pageNumber:self.pageNumber params:self.params success:^(NSArray *images) {
+        if (completion) {
+            completion(images, nil);
+        }
+    } failure:^(NSError *error) {
+        if (completion) {
+            completion(nil, error);
+        }
+    }];
 }
 
 - (BOOL)loadNextCompletion:(void(^)(NSUInteger, NSArray *, NSError * _Nullable))completion {
-    if (self.hasNext) {
+    if (self.hasNext && !self.isLoading) {
         self.pageNumber++;
-        [self getPhotosQuery:self.query success:^(NSArray *images) {
+        NSLog(@"TTUSPageLoaderService::loadNextCompletion %lu", (unsigned long)self.pageNumber);
+        [self searchFotos:self.query pageNumber:self.pageNumber params:self.params success:^(NSArray *images) {
             if (completion) {
                 completion(self.pageNumber, images, nil);
             }
@@ -57,5 +55,34 @@
         }];
     }
     return self.hasNext;
+}
+
+- (void)searchFotos:(NSString *)query pageNumber:(NSUInteger)page params:(PhotoSearchParams)params success:(void(^)(NSArray *))success failure:(void(^)(NSError *))failure {
+    self.isLoading = true;
+    NSString *stringURL = [NSString stringWithFormat:@"%@/search/photos?page=%lu&per_page=%ld&order_by=%@&client_id=%@&query=%@", params.apiUrl, (unsigned long)page, (long)params.perPage, params.orderedBy, params.clientId, query];
+    [self.photoSearchService getPhotos:[NSURL URLWithString:stringURL]
+                               success:^(NSDictionary * JSON) {
+                                   NSArray *results = [JSON valueForKey:@"results"];
+                                   NSInteger itemsCount = results.count;
+                                   self.hasNext = itemsCount == self.params.perPage;
+                                   NSMutableArray *images = [NSMutableArray array];
+                                   for (NSDictionary *imageJSON in results) {
+                                       [images addObject:[[Image alloc] initWithJSON:imageJSON]];
+                                   }
+                                   if (success) {
+                                       dispatch_async(dispatch_get_main_queue(), ^{
+                                           self.isLoading = false;
+                                           success(images);
+                                       });
+                                   }
+                               }
+                               failure:^(NSError *error) {
+                                   if (failure) {
+                                       dispatch_async(dispatch_get_main_queue(), ^{
+                                           failure(error);
+                                       });
+                                   }
+                               }
+     ];
 }
 @end

@@ -8,7 +8,7 @@
 
 @property (strong, nonatomic) UIWindow *window;
 
-- (void)presentPhotoCollectionController;
+- (void)presentPhotoCollectionController:(NSArray *)images;
 - (NSURLCache *)getURLCache;
 @end
 

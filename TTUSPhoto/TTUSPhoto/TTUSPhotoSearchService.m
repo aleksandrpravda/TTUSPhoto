@@ -13,12 +13,15 @@
     NSURLSession *session = [NSURLSession sharedSession];
     
     NSURLSessionDataTask *dataTask = [session dataTaskWithRequest:request completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
-        NSLog(@"%@", data);//TODO remove log
-        if (error)
-            failure(error);
-        else {
+        if (error) {
+            if (failure) {
+                failure(error);
+            }
+        } else {
             NSDictionary *json = [NSJSONSerialization JSONObjectWithData:data options:0 error:nil];
-            success(json);
+            if (success) {
+                success(json);
+            }
         }
     }];
     [dataTask resume];

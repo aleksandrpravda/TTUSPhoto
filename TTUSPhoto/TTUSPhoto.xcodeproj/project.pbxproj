@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3348910422E9B41C006DBD36 /* NSDictionary+TTUSValidDictionary.m in Sources */ = {isa = PBXBuildFile; fileRef = 3348910322E9B41C006DBD36 /* NSDictionary+TTUSValidDictionary.m */; };
+		3348910722E9DB5A006DBD36 /* TTUSErrorHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 3348910622E9DB5A006DBD36 /* TTUSErrorHandler.m */; };
 		336ECADA22E8571A00429720 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 336ECAD922E8571A00429720 /* AppDelegate.m */; };
 		336ECAE222E8571B00429720 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 336ECAE122E8571B00429720 /* Assets.xcassets */; };
 		336ECAE522E8571B00429720 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 336ECAE322E8571B00429720 /* LaunchScreen.storyboard */; };
@@ -36,6 +38,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		3348910222E9B41C006DBD36 /* NSDictionary+TTUSValidDictionary.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSDictionary+TTUSValidDictionary.h"; sourceTree = "<group>"; };
+		3348910322E9B41C006DBD36 /* NSDictionary+TTUSValidDictionary.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSDictionary+TTUSValidDictionary.m"; sourceTree = "<group>"; };
+		3348910522E9DB5A006DBD36 /* TTUSErrorHandler.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TTUSErrorHandler.h; sourceTree = "<group>"; };
+		3348910622E9DB5A006DBD36 /* TTUSErrorHandler.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TTUSErrorHandler.m; sourceTree = "<group>"; };
 		336ECAD522E8571A00429720 /* TTUSPhoto.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TTUSPhoto.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		336ECAD822E8571A00429720 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		336ECAD922E8571A00429720 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -130,7 +136,11 @@
 				336ECB1722E8A9F400429720 /* URLs.m */,
 				336ECB1922E8AD2300429720 /* TTUSPhotoTableViewCell.h */,
 				336ECB1A22E8AD2300429720 /* TTUSPhotoTableViewCell.m */,
+				3348910222E9B41C006DBD36 /* NSDictionary+TTUSValidDictionary.h */,
+				3348910322E9B41C006DBD36 /* NSDictionary+TTUSValidDictionary.m */,
 				336ECB1B22E8AD2300429720 /* TTUSPhotoTableViewCell.xib */,
+				3348910522E9DB5A006DBD36 /* TTUSErrorHandler.h */,
+				3348910622E9DB5A006DBD36 /* TTUSErrorHandler.m */,
 			);
 			path = TTUSPhoto;
 			sourceTree = "<group>";
@@ -255,6 +265,8 @@
 				336ECB1C22E8AD2300429720 /* TTUSPhotoTableViewCell.m in Sources */,
 				336ECB1522E8A9E800429720 /* Image.m in Sources */,
 				336ECB0422E86CFE00429720 /* TTUSSearchViewController.m in Sources */,
+				3348910722E9DB5A006DBD36 /* TTUSErrorHandler.m in Sources */,
+				3348910422E9B41C006DBD36 /* NSDictionary+TTUSValidDictionary.m in Sources */,
 				336ECADA22E8571A00429720 /* AppDelegate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -13,16 +13,17 @@ typedef struct PhotoSearchParams {
 } PhotoSearchParams;
 
 @protocol TTUSQueryLoader <NSObject>
-- (void)getPhotosQuery:(NSString *)query success:(void(^)(NSArray *))success failure:(void(^)(NSError *))failure;
+- (void)getPhotosQuery:(NSString *)query completion:(void(^)(NSArray *, NSError * _Nullable))completion;
 @end
 
 @protocol TTUSPageLoader <NSObject>
+@property(readonly, strong) NSString *query;
 - (BOOL)loadNextCompletion:(void(^)(NSUInteger, NSArray *,NSError * _Nullable))completion;
 @end
 
 @interface TTUSPageLoaderService : NSObject<TTUSQueryLoader, TTUSPageLoader>
 - (instancetype)initWith:(PhotoSearchParams)params;
-- (void)getPhotosQuery:(NSString *)query success:(void(^)(NSArray *))success failure:(void(^)(NSError *))failure;
+- (void)getPhotosQuery:(NSString *)query completion:(void(^)(NSArray *, NSError * _Nullable))completion;
 - (BOOL)loadNextCompletion:(void(^)(NSUInteger, NSArray *, NSError * _Nullable))completion;
 @end
 
