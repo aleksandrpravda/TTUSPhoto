@@ -6,7 +6,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface TTUSImageDownloader : NSObject
+@interface TTUSImageloader : NSObject
 - (instancetype)initWithCahce:(NSURLCache *)cache;
 - (void)loadImageWith:(NSString *)stringURL success:(void(^)(NSData *))success failure:(void(^)(NSError *))failure;
 - (void)cancel;

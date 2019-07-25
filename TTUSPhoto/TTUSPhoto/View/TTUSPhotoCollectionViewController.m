@@ -32,12 +32,8 @@
     [self.tableView registerNib:[UINib nibWithNibName:NSStringFromClass(TTUSPhotoTableViewCell.class)
                                                bundle:nil]
          forCellReuseIdentifier:NSStringFromClass(TTUSPhotoTableViewCell.class)];
-    NSMutableArray *inPaths = [NSMutableArray new];
     NSArray *images = self.pages[@(1)];
-    for (NSUInteger i = 0; i < images.count; ++i) {
-        [inPaths addObject:[NSIndexPath indexPathForRow:i inSection:0]];
-    }
-    [self insertRows:inPaths page:0];
+    [self update:images page:1];
 }
 
 - (BOOL)loadNext {
@@ -46,16 +42,16 @@
             [TTUSErrorHandler handleError:error inController:self];
         } else if (images) {
             self.pages[@(page)] = images;
-            NSMutableArray *inPaths = [NSMutableArray new];
-            for (NSUInteger i = 0; i < images.count; ++i) {
-                [inPaths addObject:[NSIndexPath indexPathForRow:i inSection:page - 1]];
-            }
-            [self insertRows:inPaths page:page];
+            [self update:images page:page];
         }
     }];
 }
 
-- (void)insertRows:(NSArray *)indexpaths page:(NSInteger)page {
+- (void)update:(NSArray *)images page:(NSInteger)page {
+    NSMutableArray *indexpaths = [NSMutableArray new];
+    for (NSUInteger i = 0; i < images.count; ++i) {
+        [indexpaths addObject:[NSIndexPath indexPathForRow:i inSection:page - 1]];
+    }
     [self.tableView beginUpdates];
     [self.tableView deleteRowsAtIndexPaths:@[[NSIndexPath indexPathForRow:0 inSection:page - 1]] withRowAnimation:UITableViewRowAnimationNone];
     [self.tableView setContentOffset:self.tableView.contentOffset animated:NO];

@@ -43,7 +43,6 @@
 - (BOOL)loadNextCompletion:(void(^)(NSUInteger, NSArray *, NSError * _Nullable))completion {
     if (self.hasNext && !self.isLoading) {
         self.pageNumber++;
-        NSLog(@"TTUSPageLoaderService::loadNextCompletion %lu", (unsigned long)self.pageNumber);
         [self searchFotos:self.query pageNumber:self.pageNumber params:self.params success:^(NSArray *images) {
             if (completion) {
                 completion(self.pageNumber, images, nil);
@@ -79,6 +78,7 @@
                                failure:^(NSError *error) {
                                    if (failure) {
                                        dispatch_async(dispatch_get_main_queue(), ^{
+                                           self.isLoading = false;
                                            failure(error);
                                        });
                                    }

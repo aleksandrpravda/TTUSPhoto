@@ -3,13 +3,13 @@
 //
 
 #import "TTUSPhotoTableViewCell.h"
-#import "TTUSImageDownloader.h"
+#import "TTUSImageloader.h"
 #import "AppDelegate.h"
 #import "Image.h"
 #import "URLs.h"
 
 @interface TTUSPhotoTableViewCell()
-@property(nonatomic, strong) TTUSImageDownloader *imageLoader;
+@property(nonatomic, strong) TTUSImageloader *imageLoader;
 @property (strong, nonatomic) IBOutlet UIImageView *imageThumbView;
 @property (strong, nonatomic) IBOutlet UIView *descriptionContainerView;
 @property (strong, nonatomic) IBOutlet UIActivityIndicatorView *activityIndicator;
@@ -23,7 +23,7 @@
     self = [super initWithCoder:aDecoder];
     if (self) {
         AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
-        self.imageLoader = [[TTUSImageDownloader alloc] initWithCahce:[appDelegate getURLCache]];
+        self.imageLoader = [[TTUSImageloader alloc] initWithCahce:[appDelegate getURLCache]];
     }
     return self;
 }
@@ -63,7 +63,6 @@
                                 self.imageThumbView.image = nil; //TODO add placeholder
                                 [self.activityIndicator setHidden:YES];
                                 [self.activityIndicator stopAnimating];
-                                NSLog(@"TTUSPhotoTableViewCell::loadImageWithUrl %@", error);
                             }
      ];
 }
@@ -74,6 +73,7 @@
     if (self.aspectConstrain) {
         [NSLayoutConstraint deactivateConstraints:@[self.aspectConstrain]];
     }
+    self.aspectConstrain = nil;
     [self.imageThumbView setImage:nil];
     [self.descriptionLabel setText:nil];
     [self.descriptionContainerView setHidden:YES];

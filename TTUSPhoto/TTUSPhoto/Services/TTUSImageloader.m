@@ -2,14 +2,14 @@
 // Copyright © 2019 Alexander Rogachev. All rights reserved.
 //
 
-#import "TTUSImageDownloader.h"
+#import "TTUSImageloader.h"
 
-@interface TTUSImageDownloader()
+@interface TTUSImageloader()
 @property(atomic, strong) NSURLCache *cache;
 @property(atomic, strong) NSURLSessionDataTask* dataTask;
 @end
 
-@implementation TTUSImageDownloader
+@implementation TTUSImageloader
 
 - (instancetype)initWithCahce:(NSURLCache *)cache {
     self = [super init];
@@ -23,31 +23,35 @@
     NSURLRequest *request = [NSURLRequest requestWithURL:url];
     NSCachedURLResponse *cachedResponse = [self.cache cachedResponseForRequest:request];
     if (cachedResponse) {
-//        NSLog(@"Data loaded from cache");
-        NSData *data = cachedResponse.data;
-        success(data);
+        if (success) {
+            success(cachedResponse.data);
+        }
         return;
     }
-    
     __block NSURLRequest *blockRequest = request;
-    
     self.dataTask = [[NSURLSession sharedSession] dataTaskWithURL:url completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
         self.dataTask = nil;
         if (error) {
             dispatch_async(dispatch_get_main_queue(), ^{
-                failure(error);
+                if (failure) {
+                    failure(error);
+                }
             });
         } else {
             if (response && data) {
                 NSCachedURLResponse *cachedResponse = [[NSCachedURLResponse alloc] initWithResponse:response data:data];
                 [self.cache storeCachedResponse:cachedResponse forRequest:blockRequest];
                 dispatch_async(dispatch_get_main_queue(), ^{
-                    NSLog(@"Data loaded from URL %@", response.URL.absoluteString);
-                    success(data);
+                    if (success) {
+                        success(data);
+                    }
                 });
             } else {
                 dispatch_async(dispatch_get_main_queue(), ^{
-                    failure(nil);
+                    if (failure) {
+                        NSError *error = [NSError errorWithDomain:@"Response error" code:-1 userInfo:@{NSLocalizedDescriptionKey: @"Data is nil"}];
+                        failure(error);
+                    }
                 });
             }
         }
