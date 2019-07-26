@@ -13,7 +13,6 @@
 		336ECAE222E8571B00429720 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 336ECAE122E8571B00429720 /* Assets.xcassets */; };
 		336ECAE522E8571B00429720 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 336ECAE322E8571B00429720 /* LaunchScreen.storyboard */; };
 		336ECAE822E8571B00429720 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 336ECAE722E8571B00429720 /* main.m */; };
-		336ECB0022E8669200429720 /* TTUSPhotoSearchService.m in Sources */ = {isa = PBXBuildFile; fileRef = 336ECAFF22E8669200429720 /* TTUSPhotoSearchService.m */; };
 		336ECB0422E86CFE00429720 /* TTUSSearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 336ECB0222E86CFD00429720 /* TTUSSearchViewController.m */; };
 		336ECB0522E86CFE00429720 /* TTUSSearchViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 336ECB0322E86CFD00429720 /* TTUSSearchViewController.xib */; };
 		336ECB0922E87C6600429720 /* TTUSImageloader.m in Sources */ = {isa = PBXBuildFile; fileRef = 336ECB0822E87C6600429720 /* TTUSImageloader.m */; };
@@ -24,6 +23,7 @@
 		336ECB1822E8A9F400429720 /* URLs.m in Sources */ = {isa = PBXBuildFile; fileRef = 336ECB1722E8A9F400429720 /* URLs.m */; };
 		336ECB1C22E8AD2300429720 /* TTUSPhotoTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 336ECB1A22E8AD2300429720 /* TTUSPhotoTableViewCell.m */; };
 		336ECB1D22E8AD2300429720 /* TTUSPhotoTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 336ECB1B22E8AD2300429720 /* TTUSPhotoTableViewCell.xib */; };
+		33F7402422EAE50B00740DE4 /* TTUSNetworkService.m in Sources */ = {isa = PBXBuildFile; fileRef = 33F7402322EAE50B00740DE4 /* TTUSNetworkService.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -50,8 +50,6 @@
 		336ECAE722E8571B00429720 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		336ECAED22E8571C00429720 /* TTUSPhotoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TTUSPhotoTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		336ECAF322E8571C00429720 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		336ECAFE22E8669200429720 /* TTUSPhotoSearchService.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TTUSPhotoSearchService.h; sourceTree = "<group>"; };
-		336ECAFF22E8669200429720 /* TTUSPhotoSearchService.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TTUSPhotoSearchService.m; sourceTree = "<group>"; };
 		336ECB0122E86CFD00429720 /* TTUSSearchViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TTUSSearchViewController.h; sourceTree = "<group>"; };
 		336ECB0222E86CFD00429720 /* TTUSSearchViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TTUSSearchViewController.m; sourceTree = "<group>"; };
 		336ECB0322E86CFD00429720 /* TTUSSearchViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TTUSSearchViewController.xib; sourceTree = "<group>"; };
@@ -69,6 +67,8 @@
 		336ECB1922E8AD2300429720 /* TTUSPhotoTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TTUSPhotoTableViewCell.h; sourceTree = "<group>"; };
 		336ECB1A22E8AD2300429720 /* TTUSPhotoTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TTUSPhotoTableViewCell.m; sourceTree = "<group>"; };
 		336ECB1B22E8AD2300429720 /* TTUSPhotoTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TTUSPhotoTableViewCell.xib; sourceTree = "<group>"; };
+		33F7402222EAE50B00740DE4 /* TTUSNetworkService.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TTUSNetworkService.h; sourceTree = "<group>"; };
+		33F7402322EAE50B00740DE4 /* TTUSNetworkService.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TTUSNetworkService.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -94,12 +94,12 @@
 			children = (
 				3348910522E9DB5A006DBD36 /* TTUSErrorHandler.h */,
 				3348910622E9DB5A006DBD36 /* TTUSErrorHandler.m */,
-				336ECAFE22E8669200429720 /* TTUSPhotoSearchService.h */,
-				336ECAFF22E8669200429720 /* TTUSPhotoSearchService.m */,
 				336ECB0722E87C6600429720 /* TTUSImageloader.h */,
 				336ECB0822E87C6600429720 /* TTUSImageloader.m */,
 				336ECB0B22E88B1800429720 /* TTUSPageLoaderService.h */,
 				336ECB0C22E88B1800429720 /* TTUSPageLoaderService.m */,
+				33F7402222EAE50B00740DE4 /* TTUSNetworkService.h */,
+				33F7402322EAE50B00740DE4 /* TTUSNetworkService.m */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -290,10 +290,10 @@
 				336ECB1122E896DE00429720 /* TTUSPhotoCollectionViewController.m in Sources */,
 				336ECB0D22E88B1800429720 /* TTUSPageLoaderService.m in Sources */,
 				336ECB0922E87C6600429720 /* TTUSImageloader.m in Sources */,
-				336ECB0022E8669200429720 /* TTUSPhotoSearchService.m in Sources */,
 				336ECB1C22E8AD2300429720 /* TTUSPhotoTableViewCell.m in Sources */,
 				336ECB1522E8A9E800429720 /* Image.m in Sources */,
 				336ECB0422E86CFE00429720 /* TTUSSearchViewController.m in Sources */,
+				33F7402422EAE50B00740DE4 /* TTUSNetworkService.m in Sources */,
 				3348910722E9DB5A006DBD36 /* TTUSErrorHandler.m in Sources */,
 				3348910422E9B41C006DBD36 /* NSDictionary+TTUSValidDictionary.m in Sources */,
 				336ECADA22E8571A00429720 /* AppDelegate.m in Sources */,

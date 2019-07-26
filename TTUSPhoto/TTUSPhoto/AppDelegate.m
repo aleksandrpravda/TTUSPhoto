@@ -3,7 +3,6 @@
 //
 
 #import "AppDelegate.h"
-#import "TTUSPhotoSearchService.h"
 #import "TTUSSearchViewController.h"
 #import "TTUSPhotoCollectionViewController.h"
 
@@ -27,8 +26,6 @@
     TTUSSearchViewController *initialViewController = [[TTUSSearchViewController alloc] initWith:self.pageLoaderService];
     
     self.navigationController = [UINavigationController new];
-//    self.navigationController.navigationBar.barTintColor = [UIColor darkGrayColor];
-//    [self.navigationController.navigationBar setTitleTextAttributes:@{NSForegroundColorAttributeName : [UIColor whiteColor]}];
     [self.navigationController pushViewController:initialViewController animated:NO];
     
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
