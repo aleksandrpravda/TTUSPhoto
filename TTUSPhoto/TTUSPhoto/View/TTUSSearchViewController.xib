@@ -12,7 +12,6 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="TTUSSearchViewController">
             <connections>
-                <outlet property="activityIndicator" destination="sFP-2R-NS0" id="r4e-7d-9k7"/>
                 <outlet property="goBtn" destination="hJp-UE-0K5" id="yIl-31-NAn"/>
                 <outlet property="searchTextField" destination="v3W-Jd-F63" id="8qd-lm-mjf"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
@@ -29,9 +28,6 @@
                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                     <textInputTraits key="textInputTraits"/>
                 </textField>
-                <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="sFP-2R-NS0">
-                    <rect key="frame" x="276" y="57" width="20" height="20"/>
-                </activityIndicatorView>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hJp-UE-0K5">
                     <rect key="frame" x="344" y="52" width="30" height="30"/>
                     <state key="normal" title="GO"/>
@@ -47,11 +43,9 @@
             <constraints>
                 <constraint firstItem="hJp-UE-0K5" firstAttribute="centerY" secondItem="v3W-Jd-F63" secondAttribute="centerY" id="7Ad-fK-Cf3"/>
                 <constraint firstItem="v3W-Jd-F63" firstAttribute="leading" secondItem="Q5M-cg-NOt" secondAttribute="leading" constant="20" id="cSd-M8-WGy"/>
-                <constraint firstItem="sFP-2R-NS0" firstAttribute="centerY" secondItem="v3W-Jd-F63" secondAttribute="centerY" id="jDR-dv-Fos"/>
                 <constraint firstItem="hJp-UE-0K5" firstAttribute="leading" secondItem="v3W-Jd-F63" secondAttribute="trailing" constant="40" id="kCB-iN-kh7"/>
                 <constraint firstItem="Q5M-cg-NOt" firstAttribute="trailing" secondItem="hJp-UE-0K5" secondAttribute="trailing" constant="40" id="p0v-M9-dIn"/>
                 <constraint firstItem="v3W-Jd-F63" firstAttribute="top" secondItem="Q5M-cg-NOt" secondAttribute="top" constant="8" id="qsq-LK-KAk"/>
-                <constraint firstItem="sFP-2R-NS0" firstAttribute="trailing" secondItem="v3W-Jd-F63" secondAttribute="trailing" constant="-8" id="twH-7C-cq9"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="Q5M-cg-NOt"/>
             <point key="canvasLocation" x="131.8840579710145" y="153.34821428571428"/>

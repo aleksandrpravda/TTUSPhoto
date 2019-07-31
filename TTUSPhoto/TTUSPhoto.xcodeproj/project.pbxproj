@@ -7,23 +7,26 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		3348910422E9B41C006DBD36 /* NSDictionary+TTUSValidDictionary.m in Sources */ = {isa = PBXBuildFile; fileRef = 3348910322E9B41C006DBD36 /* NSDictionary+TTUSValidDictionary.m */; };
-		3348910722E9DB5A006DBD36 /* TTUSErrorHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 3348910622E9DB5A006DBD36 /* TTUSErrorHandler.m */; };
-		336ECADA22E8571A00429720 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 336ECAD922E8571A00429720 /* AppDelegate.m */; };
 		336ECAE222E8571B00429720 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 336ECAE122E8571B00429720 /* Assets.xcassets */; };
 		336ECAE522E8571B00429720 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 336ECAE322E8571B00429720 /* LaunchScreen.storyboard */; };
 		336ECAE822E8571B00429720 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 336ECAE722E8571B00429720 /* main.m */; };
-		336ECB0422E86CFE00429720 /* TTUSSearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 336ECB0222E86CFD00429720 /* TTUSSearchViewController.m */; };
 		336ECB0522E86CFE00429720 /* TTUSSearchViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 336ECB0322E86CFD00429720 /* TTUSSearchViewController.xib */; };
-		336ECB0922E87C6600429720 /* TTUSImageloader.m in Sources */ = {isa = PBXBuildFile; fileRef = 336ECB0822E87C6600429720 /* TTUSImageloader.m */; };
-		336ECB0D22E88B1800429720 /* TTUSPageLoaderService.m in Sources */ = {isa = PBXBuildFile; fileRef = 336ECB0C22E88B1800429720 /* TTUSPageLoaderService.m */; };
-		336ECB1122E896DE00429720 /* TTUSPhotoCollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 336ECB0F22E896DE00429720 /* TTUSPhotoCollectionViewController.m */; };
 		336ECB1222E896DE00429720 /* TTUSPhotoCollectionViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 336ECB1022E896DE00429720 /* TTUSPhotoCollectionViewController.xib */; };
 		336ECB1522E8A9E800429720 /* Image.m in Sources */ = {isa = PBXBuildFile; fileRef = 336ECB1422E8A9E800429720 /* Image.m */; };
 		336ECB1822E8A9F400429720 /* URLs.m in Sources */ = {isa = PBXBuildFile; fileRef = 336ECB1722E8A9F400429720 /* URLs.m */; };
-		336ECB1C22E8AD2300429720 /* TTUSPhotoTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 336ECB1A22E8AD2300429720 /* TTUSPhotoTableViewCell.m */; };
 		336ECB1D22E8AD2300429720 /* TTUSPhotoTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 336ECB1B22E8AD2300429720 /* TTUSPhotoTableViewCell.xib */; };
-		33F7402422EAE50B00740DE4 /* TTUSNetworkService.m in Sources */ = {isa = PBXBuildFile; fileRef = 33F7402322EAE50B00740DE4 /* TTUSNetworkService.m */; };
+		337173E522F1795100BB1ED6 /* NSDictionary+TTUSValidDictionary.m in Sources */ = {isa = PBXBuildFile; fileRef = 3348910322E9B41C006DBD36 /* NSDictionary+TTUSValidDictionary.m */; };
+		337173E722F1795600BB1ED6 /* Coordinator.m in Sources */ = {isa = PBXBuildFile; fileRef = 33AFD7B022F07B63005BF7D7 /* Coordinator.m */; };
+		337173E822F1795B00BB1ED6 /* TTUSSearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 336ECB0222E86CFD00429720 /* TTUSSearchViewController.m */; };
+		337173E922F1795D00BB1ED6 /* TTUSPhotoCollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 336ECB0F22E896DE00429720 /* TTUSPhotoCollectionViewController.m */; };
+		337173EA22F1795F00BB1ED6 /* TTUSPhotoTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 336ECB1A22E8AD2300429720 /* TTUSPhotoTableViewCell.m */; };
+		337173EB22F1796200BB1ED6 /* TTUSErrorHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 3348910622E9DB5A006DBD36 /* TTUSErrorHandler.m */; };
+		337173EC22F1796400BB1ED6 /* TTUSImageloader.m in Sources */ = {isa = PBXBuildFile; fileRef = 336ECB0822E87C6600429720 /* TTUSImageloader.m */; };
+		337173ED22F1796700BB1ED6 /* TTUSApiService.m in Sources */ = {isa = PBXBuildFile; fileRef = 336ECB0C22E88B1800429720 /* TTUSApiService.m */; };
+		337173EE22F1796900BB1ED6 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 336ECAD922E8571A00429720 /* AppDelegate.m */; };
+		337173F122F1799E00BB1ED6 /* TTUSAppCoordinator.m in Sources */ = {isa = PBXBuildFile; fileRef = 33AFD7B322F07B64005BF7D7 /* TTUSAppCoordinator.m */; };
+		337173F222F179BF00BB1ED6 /* TTUSSearchViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 33AFD7AB22F07B0D005BF7D7 /* TTUSSearchViewModel.m */; };
+		337173FB22F17AC600BB1ED6 /* TTUSPhotoCollectionViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 337173F922F17AC600BB1ED6 /* TTUSPhotoCollectionViewModel.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -55,8 +58,8 @@
 		336ECB0322E86CFD00429720 /* TTUSSearchViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TTUSSearchViewController.xib; sourceTree = "<group>"; };
 		336ECB0722E87C6600429720 /* TTUSImageloader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TTUSImageloader.h; sourceTree = "<group>"; };
 		336ECB0822E87C6600429720 /* TTUSImageloader.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TTUSImageloader.m; sourceTree = "<group>"; };
-		336ECB0B22E88B1800429720 /* TTUSPageLoaderService.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TTUSPageLoaderService.h; sourceTree = "<group>"; };
-		336ECB0C22E88B1800429720 /* TTUSPageLoaderService.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TTUSPageLoaderService.m; sourceTree = "<group>"; };
+		336ECB0B22E88B1800429720 /* TTUSApiService.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TTUSApiService.h; sourceTree = "<group>"; };
+		336ECB0C22E88B1800429720 /* TTUSApiService.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TTUSApiService.m; sourceTree = "<group>"; };
 		336ECB0E22E896DE00429720 /* TTUSPhotoCollectionViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TTUSPhotoCollectionViewController.h; sourceTree = "<group>"; };
 		336ECB0F22E896DE00429720 /* TTUSPhotoCollectionViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TTUSPhotoCollectionViewController.m; sourceTree = "<group>"; };
 		336ECB1022E896DE00429720 /* TTUSPhotoCollectionViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TTUSPhotoCollectionViewController.xib; sourceTree = "<group>"; };
@@ -67,8 +70,14 @@
 		336ECB1922E8AD2300429720 /* TTUSPhotoTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TTUSPhotoTableViewCell.h; sourceTree = "<group>"; };
 		336ECB1A22E8AD2300429720 /* TTUSPhotoTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TTUSPhotoTableViewCell.m; sourceTree = "<group>"; };
 		336ECB1B22E8AD2300429720 /* TTUSPhotoTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TTUSPhotoTableViewCell.xib; sourceTree = "<group>"; };
-		33F7402222EAE50B00740DE4 /* TTUSNetworkService.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TTUSNetworkService.h; sourceTree = "<group>"; };
-		33F7402322EAE50B00740DE4 /* TTUSNetworkService.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TTUSNetworkService.m; sourceTree = "<group>"; };
+		337173F922F17AC600BB1ED6 /* TTUSPhotoCollectionViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTUSPhotoCollectionViewModel.m; sourceTree = "<group>"; };
+		337173FA22F17AC600BB1ED6 /* TTUSPhotoCollectionViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTUSPhotoCollectionViewModel.h; sourceTree = "<group>"; };
+		33AFD7AA22F07B0D005BF7D7 /* TTUSSearchViewModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TTUSSearchViewModel.h; sourceTree = "<group>"; };
+		33AFD7AB22F07B0D005BF7D7 /* TTUSSearchViewModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TTUSSearchViewModel.m; sourceTree = "<group>"; };
+		33AFD7B022F07B63005BF7D7 /* Coordinator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Coordinator.m; sourceTree = "<group>"; };
+		33AFD7B122F07B63005BF7D7 /* TTUSAppCoordinator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTUSAppCoordinator.h; sourceTree = "<group>"; };
+		33AFD7B222F07B64005BF7D7 /* Coordinator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Coordinator.h; sourceTree = "<group>"; };
+		33AFD7B322F07B64005BF7D7 /* TTUSAppCoordinator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTUSAppCoordinator.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -96,10 +105,8 @@
 				3348910622E9DB5A006DBD36 /* TTUSErrorHandler.m */,
 				336ECB0722E87C6600429720 /* TTUSImageloader.h */,
 				336ECB0822E87C6600429720 /* TTUSImageloader.m */,
-				336ECB0B22E88B1800429720 /* TTUSPageLoaderService.h */,
-				336ECB0C22E88B1800429720 /* TTUSPageLoaderService.m */,
-				33F7402222EAE50B00740DE4 /* TTUSNetworkService.h */,
-				33F7402322EAE50B00740DE4 /* TTUSNetworkService.m */,
+				336ECB0B22E88B1800429720 /* TTUSApiService.h */,
+				336ECB0C22E88B1800429720 /* TTUSApiService.m */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -162,6 +169,8 @@
 		336ECAD722E8571A00429720 /* TTUSPhoto */ = {
 			isa = PBXGroup;
 			children = (
+				337173FD22F1B94B00BB1ED6 /* Coordinators */,
+				337173FC22F1B93400BB1ED6 /* ViewModels */,
 				3339A16222EA184F00A76B41 /* Utils */,
 				3339A16122EA183600A76B41 /* Entity */,
 				3339A16022EA181B00A76B41 /* View */,
@@ -181,6 +190,28 @@
 				336ECAF322E8571C00429720 /* Info.plist */,
 			);
 			path = TTUSPhotoTests;
+			sourceTree = "<group>";
+		};
+		337173FC22F1B93400BB1ED6 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				33AFD7AA22F07B0D005BF7D7 /* TTUSSearchViewModel.h */,
+				33AFD7AB22F07B0D005BF7D7 /* TTUSSearchViewModel.m */,
+				337173FA22F17AC600BB1ED6 /* TTUSPhotoCollectionViewModel.h */,
+				337173F922F17AC600BB1ED6 /* TTUSPhotoCollectionViewModel.m */,
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		337173FD22F1B94B00BB1ED6 /* Coordinators */ = {
+			isa = PBXGroup;
+			children = (
+				33AFD7B222F07B64005BF7D7 /* Coordinator.h */,
+				33AFD7B022F07B63005BF7D7 /* Coordinator.m */,
+				33AFD7B122F07B63005BF7D7 /* TTUSAppCoordinator.h */,
+				33AFD7B322F07B64005BF7D7 /* TTUSAppCoordinator.m */,
+			);
+			path = Coordinators;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -285,18 +316,21 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				337173E722F1795600BB1ED6 /* Coordinator.m in Sources */,
+				337173EC22F1796400BB1ED6 /* TTUSImageloader.m in Sources */,
 				336ECB1822E8A9F400429720 /* URLs.m in Sources */,
+				337173EB22F1796200BB1ED6 /* TTUSErrorHandler.m in Sources */,
+				337173F222F179BF00BB1ED6 /* TTUSSearchViewModel.m in Sources */,
+				337173EA22F1795F00BB1ED6 /* TTUSPhotoTableViewCell.m in Sources */,
+				337173ED22F1796700BB1ED6 /* TTUSApiService.m in Sources */,
+				337173EE22F1796900BB1ED6 /* AppDelegate.m in Sources */,
+				337173E922F1795D00BB1ED6 /* TTUSPhotoCollectionViewController.m in Sources */,
+				337173E522F1795100BB1ED6 /* NSDictionary+TTUSValidDictionary.m in Sources */,
+				337173F122F1799E00BB1ED6 /* TTUSAppCoordinator.m in Sources */,
 				336ECAE822E8571B00429720 /* main.m in Sources */,
-				336ECB1122E896DE00429720 /* TTUSPhotoCollectionViewController.m in Sources */,
-				336ECB0D22E88B1800429720 /* TTUSPageLoaderService.m in Sources */,
-				336ECB0922E87C6600429720 /* TTUSImageloader.m in Sources */,
-				336ECB1C22E8AD2300429720 /* TTUSPhotoTableViewCell.m in Sources */,
+				337173FB22F17AC600BB1ED6 /* TTUSPhotoCollectionViewModel.m in Sources */,
+				337173E822F1795B00BB1ED6 /* TTUSSearchViewController.m in Sources */,
 				336ECB1522E8A9E800429720 /* Image.m in Sources */,
-				336ECB0422E86CFE00429720 /* TTUSSearchViewController.m in Sources */,
-				33F7402422EAE50B00740DE4 /* TTUSNetworkService.m in Sources */,
-				3348910722E9DB5A006DBD36 /* TTUSErrorHandler.m in Sources */,
-				3348910422E9B41C006DBD36 /* NSDictionary+TTUSValidDictionary.m in Sources */,
-				336ECADA22E8571A00429720 /* AppDelegate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

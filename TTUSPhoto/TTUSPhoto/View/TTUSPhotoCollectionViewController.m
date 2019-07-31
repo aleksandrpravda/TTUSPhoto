@@ -8,102 +8,63 @@
 
 @interface TTUSPhotoCollectionViewController ()<UITableViewDelegate, UITableViewDataSource>
 @property (strong, nonatomic) IBOutlet UITableView *tableView;
-@property(nonatomic, weak) id<TTUSPageLoader> pageLoader;
-@property(nonatomic, strong) NSMutableDictionary *pages;
 @end
 
 @implementation TTUSPhotoCollectionViewController
-
-- (instancetype)initWith:(NSArray *)images pageLoader:(id<TTUSPageLoader>)pageLoader {
-    self = [super initWithNibName:NSStringFromClass(self.class) bundle:nil];
-    if (self) {
-        self.pageLoader = pageLoader;
-        self.pages = [NSMutableDictionary new];
-        self.pages[@(1)] = images;
-    }
-    return self;
-}
-
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [self.navigationItem setTitle:self.pageLoader.query];
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
     [self.tableView registerNib:[UINib nibWithNibName:NSStringFromClass(TTUSPhotoTableViewCell.class)
                                                bundle:nil]
          forCellReuseIdentifier:NSStringFromClass(TTUSPhotoTableViewCell.class)];
-    NSArray *images = self.pages[@(1)];
-    [self update:images page:1];
+    self.viewModel.delegate = self;
+    [self.viewModel fetchPhotos];
 }
 
-- (BOOL)loadNext {
-    return [self.pageLoader loadNextCompletion:^(NSUInteger page, NSArray* images, NSError *error) {
-        if (error) {
-            [TTUSErrorHandler handleError:error inController:self];
-        } else if (images) {
-            self.pages[@(page)] = images;
-            [self update:images page:page];
+- (void)viewDidDisappear:(BOOL)animated {
+    for(UITableViewCell *cell in self.tableView.visibleCells) {
+        if ([cell isKindOfClass:[TTUSPhotoTableViewCell class]]) {
+            [((TTUSPhotoTableViewCell *)cell) removeObserver];
         }
-    }];
-}
-
-- (void)update:(NSArray *)images page:(NSInteger)page {
-    NSMutableArray *indexpaths = [NSMutableArray new];
-    for (NSUInteger i = 0; i < images.count; ++i) {
-        [indexpaths addObject:[NSIndexPath indexPathForRow:i inSection:page - 1]];
     }
-    [self.tableView beginUpdates];
-    [self.tableView deleteRowsAtIndexPaths:@[[NSIndexPath indexPathForRow:0 inSection:page - 1]] withRowAnimation:UITableViewRowAnimationNone];
-    [self.tableView setContentOffset:self.tableView.contentOffset animated:NO];
-    [self.tableView insertRowsAtIndexPaths:indexpaths withRowAnimation:UITableViewRowAnimationNone];
-    [self.tableView insertSections:[NSIndexSet indexSetWithIndex:page] withRowAnimation:UITableViewRowAnimationNone];
-    [self.tableView insertRowsAtIndexPaths:@[[NSIndexPath indexPathForRow:0 inSection:page]] withRowAnimation:UITableViewRowAnimationNone];
-    [self.tableView endUpdates];
+    [super viewDidDisappear:animated];
 }
 
 - (nonnull UITableViewCell *)tableView:(nonnull UITableView *)tableView cellForRowAtIndexPath:(nonnull NSIndexPath *)indexPath {
-    NSInteger count = self.pages.count;
-    if (indexPath.section >= count) {
-        if ([self loadNext]) {
-            return [self activityCell];
-        } else {
-            return nil;
-        }
+    if ((self.viewModel.currentCount == 0 || indexPath.section == 1) && self.viewModel.hasNext) {
+        [self.viewModel fetchPhotos];
+        return [self activityCell];
     }
     TTUSPhotoTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:NSStringFromClass(TTUSPhotoTableViewCell.class) forIndexPath:indexPath];
-    NSArray *images = self.pages[@(indexPath.section + 1)];
-    [cell updateData:images[indexPath.row]];
+    [cell updateData:[self.viewModel dataFor:indexPath]];
     return cell;
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    NSInteger count = self.pages.count;
-    if (count > 0) {
-        return count + 1;
+    if (self.viewModel.currentCount > 0) {
+        if (self.viewModel.hasNext) {
+            return 2;
+        }
+        return 1;
+    }
+    if (self.viewModel.hasNext) {
+        return 1;
     }
     return 0;
 }
 
 - (NSInteger)tableView:(nonnull UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    NSInteger count = self.pages.count;
-    if (count > 0) {
-        if (section >= count) {
-            return 1;
-        }
-        NSArray *images = self.pages[@(section + 1)];
-        return images.count;
+    if (section == 1) {
+        return 1;
+    }
+    if (self.viewModel.currentCount > 0) {
+        return self.viewModel.currentCount;
+    }
+    if (self.viewModel.hasNext) {
+        return 1;
     }
     return 0;
-}
-
-- (nullable NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
-    NSInteger count = self.pages.count;
-    if (count > 0) {
-        if (section < count) {
-            return [NSString stringWithFormat:@"Page %ld", (section + 1)];
-        }
-    }
-    return nil;
 }
 
 - (UITableViewCell *)activityCell {
@@ -118,5 +79,48 @@
     NSLayoutConstraint *verticalConstraint = [NSLayoutConstraint constraintWithItem:iView attribute:NSLayoutAttributeCenterY relatedBy:NSLayoutRelationEqual toItem:cell attribute:NSLayoutAttributeCenterY multiplier:1 constant:0];
     [NSLayoutConstraint activateConstraints:@[horizontalConstraint, verticalConstraint]];
     return cell;
+}
+
+#pragma - mark View Model Delegate
+
+- (void)onfetchCompleted:(NSArray *)indexpaths {
+    if (@available(iOS 11.0, *)) {
+        [self.tableView performBatchUpdates:^{
+            if (self.tableView.numberOfSections == 1) {
+                [self.tableView deleteRowsAtIndexPaths:@[[NSIndexPath indexPathForRow:0 inSection:0]] withRowAnimation:UITableViewRowAnimationNone];
+                if (self.viewModel.hasNext) {
+                    [self.tableView insertSections:[NSIndexSet indexSetWithIndex:1] withRowAnimation:UITableViewRowAnimationNone];
+                }
+            }
+            [self.tableView insertRowsAtIndexPaths:indexpaths withRowAnimation:UITableViewRowAnimationNone];
+            [self.tableView setContentOffset:self.tableView.contentOffset animated:NO];
+        } completion:nil];
+    } else {
+        [self.tableView beginUpdates];
+        if (self.tableView.numberOfSections == 1 && self.viewModel.hasNext) {
+            [self.tableView deleteRowsAtIndexPaths:@[[NSIndexPath indexPathForRow:0 inSection:0]] withRowAnimation:UITableViewRowAnimationNone];
+            [self.tableView insertSections:[NSIndexSet indexSetWithIndex:1] withRowAnimation:UITableViewRowAnimationNone];
+        }
+        [self.tableView insertRowsAtIndexPaths:indexpaths withRowAnimation:UITableViewRowAnimationNone];
+        [self.tableView setContentOffset:self.tableView.contentOffset animated:NO];
+        [self.tableView endUpdates];
+    }
+    if (!self.viewModel.hasNext) {
+        [self.tableView reloadData];
+    }
+}
+
+- (void)onfetchFailed:(NSString *)reason {
+    UIAlertController * alert = [UIAlertController
+                                 alertControllerWithTitle:@""
+                                 message:reason
+                                 preferredStyle:UIAlertControllerStyleAlert];
+    UIAlertAction* okButton = [UIAlertAction
+                               actionWithTitle:@"Ok"
+                               style:UIAlertActionStyleDefault
+                               handler:nil];
+    [alert addAction:okButton];
+    [self presentViewController:alert animated:YES completion:nil];
+    [self.tableView reloadData];
 }
 @end

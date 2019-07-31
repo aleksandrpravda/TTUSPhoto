@@ -3,11 +3,12 @@
 //
 
 #import <UIKit/UIKit.h>
-@class Image;
+@class PhotoViewData;
 NS_ASSUME_NONNULL_BEGIN
 
 @interface TTUSPhotoTableViewCell : UITableViewCell
-- (void)updateData:(Image *)image;
+- (void)updateData:(PhotoViewData * _Nullable)viewData;
+- (void)removeObserver;
 @end
 
 NS_ASSUME_NONNULL_END

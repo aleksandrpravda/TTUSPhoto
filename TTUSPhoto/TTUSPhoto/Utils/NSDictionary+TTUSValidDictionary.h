@@ -7,7 +7,7 @@
 NS_ASSUME_NONNULL_BEGIN
 
 @interface NSDictionary (TTUSValidDictionary)
-- (id)validatedValueForKey:(NSString *)key;
+- (id _Nullable)validatedValueForKey:(NSString *)key;
 @end
 
 NS_ASSUME_NONNULL_END

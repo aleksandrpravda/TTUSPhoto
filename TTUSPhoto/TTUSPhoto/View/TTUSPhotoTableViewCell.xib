@@ -42,12 +42,14 @@
                     </view>
                     <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" restorationIdentifier="TTUSPhotoTableViewCell" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="vmi-7d-zEX">
                         <rect key="frame" x="184" y="113.5" width="20" height="20"/>
+                        <color key="color" red="0.094117647060000004" green="0.094117647060000004" blue="0.094117647060000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </activityIndicatorView>
                 </subviews>
                 <constraints>
                     <constraint firstItem="EXL-IJ-ccz" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="99j-cq-KLU"/>
                     <constraint firstAttribute="trailing" secondItem="E1E-7P-DRL" secondAttribute="trailing" id="KuQ-ur-Iej"/>
                     <constraint firstItem="E1E-7P-DRL" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="RZw-Sa-tsW"/>
+                    <constraint firstItem="E1E-7P-DRL" firstAttribute="height" relation="lessThanOrEqual" secondItem="H2p-sc-9uM" secondAttribute="height" multiplier="0.7" id="gDP-sr-DAz"/>
                     <constraint firstItem="vmi-7d-zEX" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="kEr-EY-fYK"/>
                     <constraint firstAttribute="bottom" secondItem="E1E-7P-DRL" secondAttribute="bottom" constant="8" id="oV0-oU-KpB"/>
                     <constraint firstAttribute="trailing" secondItem="EXL-IJ-ccz" secondAttribute="trailing" id="rOf-aw-4nR"/>
@@ -56,7 +58,7 @@
                     <constraint firstAttribute="bottom" secondItem="EXL-IJ-ccz" secondAttribute="bottom" constant="8" id="zZI-83-tkW"/>
                 </constraints>
             </tableViewCellContentView>
-            <color key="backgroundColor" red="0.094117647060000004" green="0.094117647060000004" blue="0.094117647060000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <viewLayoutGuide key="safeArea" id="aW0-zy-SZf"/>
             <connections>
                 <outlet property="activityIndicator" destination="vmi-7d-zEX" id="a7F-Wi-avn"/>

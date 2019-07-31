@@ -9,13 +9,13 @@
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "TTUSPhoto/TTUSPhotoTableViewCell.m"
-            timestampString = "585752231.546581"
+            filePath = "TTUSPhoto/View/TTUSPhotoCollectionViewController.m"
+            timestampString = "586269555.607005"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "23"
-            endingLineNumber = "23"
-            landmarkName = "-initWithCoder:"
+            startingLineNumber = "87"
+            endingLineNumber = "87"
+            landmarkName = "-onfetchCompleted:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -25,13 +25,13 @@
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "TTUSPhoto/TTUSPhotoTableViewCell.m"
-            timestampString = "585752231.546701"
+            filePath = "TTUSPhoto/View/TTUSPhotoCollectionViewController.m"
+            timestampString = "586269555.6073771"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "36"
-            endingLineNumber = "36"
-            landmarkName = "-updateData:"
+            startingLineNumber = "89"
+            endingLineNumber = "89"
+            landmarkName = "-onfetchCompleted:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -41,13 +41,13 @@
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "TTUSPhoto/TTUSPhotoTableViewCell.m"
-            timestampString = "585752231.546847"
+            filePath = "TTUSPhoto/View/TTUSPhotoCollectionViewController.m"
+            timestampString = "586269555.607452"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "39"
-            endingLineNumber = "39"
-            landmarkName = "-updateData:"
+            startingLineNumber = "99"
+            endingLineNumber = "99"
+            landmarkName = "-onfetchCompleted:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -57,13 +57,61 @@
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "TTUSPhoto/TTUSPhotoTableViewCell.m"
-            timestampString = "585752231.5469609"
+            filePath = "TTUSPhoto/View/TTUSPhotoCollectionViewController.m"
+            timestampString = "586269555.607519"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "35"
-            endingLineNumber = "35"
-            landmarkName = "-updateData:"
+            startingLineNumber = "88"
+            endingLineNumber = "88"
+            landmarkName = "-onfetchCompleted:"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "-[TTUSPhotoCollectionViewController onfetchCompleted:]"
+                  moduleName = "TTUSPhoto"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/alexanderr/Documents/projects/TTUSPhoto/TTUSPhoto/TTUSPhoto/View/TTUSPhotoCollectionViewController.m"
+                  timestampString = "586267275.819639"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "76"
+                  endingLineNumber = "76"
+                  offsetFromSymbolStart = "72">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "__54-[TTUSPhotoCollectionViewController onfetchCompleted:]_block_invoke"
+                  moduleName = "TTUSPhoto"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/alexanderr/Documents/projects/TTUSPhoto/TTUSPhoto/TTUSPhoto/View/TTUSPhotoCollectionViewController.m"
+                  timestampString = "586267275.823966"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "76"
+                  endingLineNumber = "76"
+                  offsetFromSymbolStart = "29">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "TTUSPhoto/View/TTUSPhotoCollectionViewController.m"
+            timestampString = "586269555.607585"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "90"
+            endingLineNumber = "90"
+            landmarkName = "-onfetchCompleted:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -73,13 +121,13 @@
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "TTUSPhoto/TTUSPhotoTableViewCell.m"
-            timestampString = "585752231.547363"
+            filePath = "TTUSPhoto/View/TTUSPhotoCollectionViewController.m"
+            timestampString = "586269555.607651"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "38"
-            endingLineNumber = "38"
-            landmarkName = "-updateData:"
+            startingLineNumber = "95"
+            endingLineNumber = "95"
+            landmarkName = "-onfetchCompleted:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -89,12 +137,12 @@
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "TTUSPhoto/TTUSPhotoCollectionViewController.m"
-            timestampString = "585766299.222414"
+            filePath = "TTUSPhoto/View/TTUSPhotoCollectionViewController.m"
+            timestampString = "586269555.607718"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "80"
-            endingLineNumber = "80"
+            startingLineNumber = "54"
+            endingLineNumber = "54"
             landmarkName = "-numberOfSectionsInTableView:"
             landmarkType = "7">
          </BreakpointContent>
@@ -105,45 +153,13 @@
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "TTUSPhoto/TTUSPhotoCollectionViewController.m"
-            timestampString = "585766299.223015"
+            filePath = "TTUSPhoto/View/TTUSSearchViewController.m"
+            timestampString = "586269555.607785"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "89"
-            endingLineNumber = "89"
-            landmarkName = "-tableView:numberOfRowsInSection:"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "TTUSPhoto/TTUSSearchViewController.m"
-            timestampString = "585752231.547763"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "58"
-            endingLineNumber = "58"
-            landmarkName = "-textFieldDidChange:"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "TTUSPhoto/TTUSSearchViewController.m"
-            timestampString = "585752231.5484819"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "44"
-            endingLineNumber = "44"
-            landmarkName = "-onGoBtn:"
+            startingLineNumber = "36"
+            endingLineNumber = "36"
+            landmarkName = "-clearText"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

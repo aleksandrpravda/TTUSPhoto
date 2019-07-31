@@ -3,81 +3,82 @@
 //
 
 #import "TTUSPhotoTableViewCell.h"
-#import "TTUSImageloader.h"
-#import "AppDelegate.h"
 #import "Image.h"
 #import "URLs.h"
+#import "TTUSPhotoCollectionViewModel.h"
 
 @interface TTUSPhotoTableViewCell()
-@property(nonatomic, strong) TTUSImageloader *imageLoader;
-@property (strong, nonatomic) IBOutlet UIImageView *imageThumbView;
-@property (strong, nonatomic) IBOutlet UIView *descriptionContainerView;
-@property (strong, nonatomic) IBOutlet UIActivityIndicatorView *activityIndicator;
-@property (strong, nonatomic) IBOutlet UILabel *descriptionLabel;
-@property (nonatomic, strong) NSLayoutConstraint *aspectConstrain;
+@property (weak, nonatomic) IBOutlet UIImageView *imageThumbView;
+@property (weak, nonatomic) IBOutlet UIView *descriptionContainerView;
+@property (weak, nonatomic) IBOutlet UIActivityIndicatorView *activityIndicator;
+@property (weak, nonatomic) IBOutlet UILabel *descriptionLabel;
+@property (strong, nonatomic) NSLayoutConstraint *aspectConstrain;
+@property (strong, nonatomic) PhotoViewData *viewData;
 @end
 
 @implementation TTUSPhotoTableViewCell
 
-- (instancetype)initWithCoder:(NSCoder *)aDecoder {
-    self = [super initWithCoder:aDecoder];
-    if (self) {
-        AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
-        self.imageLoader = [[TTUSImageloader alloc] initWithCahce:[appDelegate getURLCache]];
-    }
-    return self;
+- (void)awakeFromNib {
+    [super awakeFromNib];
 }
 
-- (void)updateData:(Image *)image {
-    [self loadImageWithUrl:image.urls.thumb];
-    NSString *descr = image.descr;
-    NSString *altDescr = image.altDescr;
-    if (descr) {
-        [self.descriptionLabel setText:descr];
-        [self.descriptionContainerView setHidden:NO];
-    } else if (altDescr) {
-        [self.descriptionLabel setText:altDescr];
+- (void)updateData:(PhotoViewData * _Nullable)viewData {
+    self.viewData = viewData;
+    if (viewData.imageData) {
+        [self.activityIndicator setHidden:YES];
+        [self.activityIndicator stopAnimating];
+    }
+    CGFloat aspect = viewData.width / viewData.height;
+    [self addAspectConstraint:aspect];
+    if (viewData.desc) {
+        [self.descriptionLabel setText:viewData.desc];
         [self.descriptionContainerView setHidden:NO];
     } else {
         [self.descriptionContainerView setHidden:YES];
     }
+    [self.imageThumbView setImage:[UIImage imageWithData:viewData.imageData]];
+    [self.viewData addObserver:self
+                    forKeyPath:@"imageData"
+                       options:NSKeyValueObservingOptionNew | NSKeyValueObservingOptionOld
+                       context:@"cellContext"
+     ];
 }
 
-- (void)loadImageWithUrl:(NSString *)url {
-    [self.imageLoader loadImageWith:url
-                            success:^(NSData * data) {
-                                UIImage *image = [UIImage imageWithData:data];
-                                CGFloat aspect = image.size.width / image.size.height;
-                                NSLayoutConstraint *constraint = [NSLayoutConstraint constraintWithItem:self.imageThumbView attribute:NSLayoutAttributeWidth relatedBy:NSLayoutRelationEqual toItem:self.imageThumbView attribute:NSLayoutAttributeHeight multiplier:aspect constant:0.0];
-                                constraint.priority = 999;
-                                if (self.aspectConstrain) {
-                                    [NSLayoutConstraint deactivateConstraints:@[self.aspectConstrain]];
-                                }
-                                self.aspectConstrain = constraint;
-                                [NSLayoutConstraint activateConstraints:@[self.aspectConstrain]];
-                                self.imageThumbView.image = image;
-                                [self.activityIndicator setHidden:YES];
-                                [self.activityIndicator stopAnimating];
-                            }
-                            failure:^(NSError * error) {
-                                self.imageThumbView.image = nil; //TODO add placeholder
-                                [self.activityIndicator setHidden:YES];
-                                [self.activityIndicator stopAnimating];
-                            }
-     ];
+- (void)removeObserver {
+    [self.viewData removeObserver:self forKeyPath:@"imageData" context:@"cellContext"];
+    self.viewData = nil;
 }
 
 - (void)prepareForReuse {
     [super prepareForReuse];
-    [self.imageLoader cancel];
+    [self removeObserver];
+    [self.imageThumbView setImage:nil];
     if (self.aspectConstrain) {
-        [NSLayoutConstraint deactivateConstraints:@[self.aspectConstrain]];
+        [self.imageThumbView removeConstraint:self.aspectConstrain];
     }
     self.aspectConstrain = nil;
-    [self.imageThumbView setImage:nil];
     [self.descriptionLabel setText:nil];
     [self.descriptionContainerView setHidden:YES];
     [self.activityIndicator setHidden:NO];
     [self.activityIndicator startAnimating];
+}
+
+- (void)addAspectConstraint:(float)aspect {
+    if (self.aspectConstrain) {
+        [NSLayoutConstraint deactivateConstraints:@[self.aspectConstrain]];
+        self.aspectConstrain = nil;
+    }
+    NSLayoutConstraint *constraint = [NSLayoutConstraint constraintWithItem:self.imageThumbView attribute:NSLayoutAttributeWidth relatedBy:NSLayoutRelationEqual toItem:self.imageThumbView attribute:NSLayoutAttributeHeight multiplier:aspect constant:0.0];
+    constraint.priority = 999;
+    self.aspectConstrain = constraint;
+    [NSLayoutConstraint activateConstraints:@[self.aspectConstrain]];
+}
+
+- (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context {
+    if ([keyPath isEqualToString:@"imageData"]) {
+        [self.activityIndicator setHidden:YES];
+        [self.activityIndicator stopAnimating];
+        [self.imageThumbView setImage:[UIImage imageWithData:((PhotoViewData *)object).imageData]];
+    }
 }
 @end

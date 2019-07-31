@@ -6,7 +6,22 @@
          contextName = "-[Image initWithJSON:]:Image.m">
       </ContextState>
       <ContextState
+         contextName = "-[TTUSPhotoCollectionViewController tableView:cellForRowAtIndexPath:]:TTUSPhotoCollectionViewController.m">
+      </ContextState>
+      <ContextState
+         contextName = "-[TTUSPhotoTableViewCell observeValueForKeyPath:ofObject:change:context:]:TTUSPhotoTableViewCell.m">
+      </ContextState>
+      <ContextState
+         contextName = "__45-[TTUSPhotoCollectionViewController loadNext]_block_invoke:TTUSPhotoCollectionViewController.m">
+      </ContextState>
+      <ContextState
          contextName = "-[TTUSPhotoCollectionViewController tableView:numberOfRowsInSection:]:TTUSPhotoCollectionViewController.m">
+      </ContextState>
+      <ContextState
+         contextName = "-[TTUSPhotoTableViewCell updateData:]:TTUSPhotoTableViewCell.m">
+      </ContextState>
+      <ContextState
+         contextName = "-[TTUSPhotoCollectionViewModel fetchPhotos]:TTUSPhotoCollectionViewModel.m">
       </ContextState>
       <ContextState
          contextName = "-[TTUSSearchViewController onGoBtn:]:TTUSSearchViewController.m">
@@ -17,10 +32,23 @@
          </PersistentStrings>
       </ContextState>
       <ContextState
-         contextName = "-[TTUSPhotoCollectionViewController tableView:cellForRowAtIndexPath:]:TTUSPhotoCollectionViewController.m">
+         contextName = "-[TTUSSearchViewModel search:]:TTUSSearchViewModel.m">
+         <PersistentStrings>
+            <PersistentString
+               value = "self.coordinatorDelegate">
+            </PersistentString>
+         </PersistentStrings>
       </ContextState>
       <ContextState
-         contextName = "__45-[TTUSPhotoCollectionViewController loadNext]_block_invoke:TTUSPhotoCollectionViewController.m">
+         contextName = "__43-[TTUSPhotoCollectionViewModel fetchPhotos]_block_invoke_2:TTUSPhotoCollectionViewModel.m">
+      </ContextState>
+      <ContextState
+         contextName = "-[TTUSPhotoTableViewCell addAspectConstraint:]:TTUSPhotoTableViewCell.m">
+         <PersistentStrings>
+            <PersistentString
+               value = "self.imageThumbView.image">
+            </PersistentString>
+         </PersistentStrings>
       </ContextState>
       <ContextState
          contextName = "-[TTUSPhotoTableViewCell loadImageWithUrl:]:TTUSPhotoTableViewCell.m">

@@ -3,11 +3,11 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "TTUSPageLoaderService.h"
+#import "TTUSSearchViewModel.h"
 NS_ASSUME_NONNULL_BEGIN
 
 @interface TTUSSearchViewController : UIViewController
-- (instancetype)initWith:(id<TTUSQueryLoader>)queryLoader;
+@property (strong, nonatomic) TTUSSearchViewModel *viewModel;
 @end
 
 NS_ASSUME_NONNULL_END
